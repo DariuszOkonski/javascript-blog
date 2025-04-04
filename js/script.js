@@ -6,8 +6,9 @@
   const optTitleListSelector = '.titles';
 
   const generateTitleLinks = function () {
-    console.log('generate Title Links!!!');
     /* remove contents of titleList */
+    const titleList = document.querySelector(optTitleListSelector);
+    titleList.innerHTML = '';
 
     /* for each article */
 
@@ -62,3 +63,8 @@
     link.addEventListener('click', titleClickHandler);
   }
 }
+
+// TODO: remove later
+// <li>
+//   <a href="#article-1" class="active"><span>Article 1</span></a>
+// </li>

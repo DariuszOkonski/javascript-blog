@@ -11,6 +11,23 @@
     titleList.innerHTML = '';
 
     /* for each article */
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    let html = '';
+    for (const article of articles) {
+      const articleId = article.getAttribute('id');
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      const linkHTML =
+        '<li><a href="#' +
+        articleId +
+        '"><span>' +
+        articleTitle +
+        '</span></a></li>';
+
+      html = html + linkHTML;
+    }
+
+    titleList.innerHTML = html;
 
     /* get the article id */
 

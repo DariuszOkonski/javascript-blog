@@ -1,7 +1,5 @@
 'use strict';
 
-// NEXT => Magiczne słowo this
-
 const titleClickHandler = function (event) {
   console.log(event);
 

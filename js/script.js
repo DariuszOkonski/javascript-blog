@@ -121,7 +121,7 @@
     let allTagsHTML = '';
   
     for (const tag in allTags) {
-      allTagsHTML += '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">'+ tag + ' (' + allTags[tag] + ') ' +'</a></li>';
+      allTagsHTML += '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
     }
 
     tagList.innerHTML = allTagsHTML;

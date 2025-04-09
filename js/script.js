@@ -30,11 +30,11 @@
     targetArticle.classList.add('active');
   };
 
-  const generateTitleLinks = function () {
+  const generateTitleLinks = function (customSelector  = '') {
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
 
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     let html = '';
     for (const article of articles) {
@@ -78,4 +78,35 @@
   };
 
   generateTags();
+
+  const tagClickHandler = function(event){
+    event.preventDefault();
+    const clickedElement = this;
+    const href = clickedElement.getAttribute('href');
+    const tag = href.replace('#tag-', '');
+    
+    const activeTagLinks = document.querySelectorAll(optArticleTagsSelector + ' a.active[href^="#tag-"]');
+
+    for (const activeTagLink of activeTagLinks) {
+      activeTagLink.classList.remove('active');
+    }
+
+    const clickedTagLinks = document.querySelectorAll('a[href="'+ href +'"]');
+
+    for (const tagLink of clickedTagLinks) {
+      tagLink.classList.add('active');
+    }
+
+    generateTitleLinks('[data-tags~="'+ tag + '"]');
+  };
+  
+  const addClickListenersToTags = function(){
+    const tags = document.querySelectorAll(optArticleTagsSelector + ' a');
+
+    for (const tag of tags) {
+      tag.addEventListener('click', tagClickHandler);
+    }
+  };
+  
+  addClickListenersToTags();
 }

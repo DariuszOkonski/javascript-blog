@@ -79,6 +79,12 @@
 
   generateTags();
 
+  const generateAuthors = function() {
+    console.log('generateAuthors')
+  }
+
+  generateAuthors();
+
   const tagClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;

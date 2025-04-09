@@ -4,6 +4,7 @@
   const optArticleSelector = '.post';
   const optTitleSelector = '.post-title';
   const optTitleListSelector = '.titles';
+  const optArticleTagsSelector = '.post-tags .list';
 
   const titleClickHandler = function (event) {
     event.preventDefault();
@@ -58,4 +59,24 @@
     }
   };
   generateTitleLinks();
+
+  const generateTags = function () {
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    for (const article of articles) {
+      let html = '';
+      const articleTagsSelector = article.querySelector(optArticleTagsSelector);
+      const articleTags = article.getAttribute('data-tags');
+      const articleTagsArray = articleTags.split(' ')
+
+      for (const tag of articleTagsArray) {
+        console.log(tag)
+        html += '<li><a href="#tag-' + tag + '">' + tag + '</a></li>'
+      }
+
+      articleTagsSelector.innerHTML = html;
+    }
+  }
+
+  generateTags();
 }

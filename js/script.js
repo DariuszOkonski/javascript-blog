@@ -5,6 +5,7 @@
   const optTitleSelector = '.post-title';
   const optTitleListSelector = '.titles';
   const optArticleTagsSelector = '.post-tags .list';
+  const optArticleAuthorSelector = '.post .post-author a';
 
   const titleClickHandler = function (event) {
     event.preventDefault();
@@ -84,7 +85,7 @@
 
     for (const article of articles) {
       const author = article.getAttribute('data-author');
-      const anchor = '<a href="#">' + author + '</a>';
+      const anchor = '<a href="' + author + '">' + author + '</a>';
       const postAuthor = article.querySelector('.post-author');
       postAuthor.innerHTML = anchor;
     }
@@ -122,4 +123,22 @@
   };
   
   addClickListenersToTags();
+
+  const authorClickHandler = function(event) {
+    event.preventDefault();
+    const clickedElement = this;
+    const author = clickedElement.textContent;
+
+    generateTitleLinks('[data-author="'+ author + '"]');
+  };
+
+  const addClickListenersToAuthors = function() {
+    const authorLinks = document.querySelectorAll(optArticleAuthorSelector);
+
+    for (const author of authorLinks) {
+      author.addEventListener('click', authorClickHandler);
+    }
+  };
+
+  addClickListenersToAuthors();
 }

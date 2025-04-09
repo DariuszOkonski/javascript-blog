@@ -80,8 +80,15 @@
   generateTags();
 
   const generateAuthors = function() {
-    console.log('generateAuthors')
-  }
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    for (const article of articles) {
+      const author = article.getAttribute('data-author');
+      const anchor = '<a href="#">' + author + '</a>';
+      const postAuthor = article.querySelector('.post-author');
+      postAuthor.innerHTML = anchor;
+    }
+  };
 
   generateAuthors();
 

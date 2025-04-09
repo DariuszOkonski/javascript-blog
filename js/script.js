@@ -9,7 +9,6 @@
     event.preventDefault();
 
     const clickedElement = this;
-    console.log('Link was clicked!');
 
     const activeLinks = document.querySelectorAll('.titles a.active');
     for (const activeLink of activeLinks) {
@@ -17,8 +16,6 @@
     }
 
     clickedElement.classList.add('active');
-
-    console.log('clickedElement: ', clickedElement);
 
     const activeArticles = document.querySelectorAll('.posts .active');
     for (const activeArticle of activeArticles) {

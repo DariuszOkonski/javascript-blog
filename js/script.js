@@ -67,16 +67,15 @@
       let html = '';
       const articleTagsSelector = article.querySelector(optArticleTagsSelector);
       const articleTags = article.getAttribute('data-tags');
-      const articleTagsArray = articleTags.split(' ')
+      const articleTagsArray = articleTags.split(' ');
 
       for (const tag of articleTagsArray) {
-        console.log(tag)
-        html += '<li><a href="#tag-' + tag + '">' + tag + '</a></li>'
+        html += '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
       }
 
       articleTagsSelector.innerHTML = html;
     }
-  }
+  };
 
   generateTags();
 }

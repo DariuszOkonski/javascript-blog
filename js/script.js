@@ -131,9 +131,7 @@
       allTagsHTML +=
         '<li><a class="' +
         calculateTagClass(allTags[tag], tagsParams) +
-        '" href="#tag-' +
-        tag +
-        '">' +
+        '" href="#">' +
         tag +
         '</a></li>';
     }
